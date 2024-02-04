@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
 import morgan from "morgan";
+import appRouter from "./routes/index.js";
 
 dotenv.config();
 const app = express();
@@ -10,8 +11,6 @@ const app = express();
 app.use(express.json());
 app.use(morgan("dev")); // todo: remove this in production
 
-app.get("/", (req, res, next) => {
-  res.send("send the response");
-});
+app.use("/api", appRouter);
 
 export default app;
