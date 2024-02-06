@@ -5,6 +5,11 @@ import "./index.css";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.tsx";
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
+
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
+axios.defaults.withCredentials = true;
 
 const theme = createTheme({
   typography: {
@@ -18,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <AuthProvider>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
+          <Toaster position="top-right" />
           <App />
         </ThemeProvider>
       </BrowserRouter>
