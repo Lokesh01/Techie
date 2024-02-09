@@ -80,8 +80,8 @@ const ChaItemt = ({ content, role }: Message) => {
         borderRadius: 2,
       }}
     >
-      <Avatar sx={{ ml: 0, bgcolor: "black", color: "white" }}>
-        {splitName ? splitName[0][0] : null}{" "}
+      <Avatar sx={{ ml: "0", bgcolor: "black", color: "white" }}>
+        {splitName ? splitName[0][0] : null}
         {splitName?.length === 2 ? splitName[1][0] : null}
       </Avatar>
       <Box>

@@ -116,12 +116,12 @@ const Chat = () => {
             {/* picking 1 letter of last name */}
             {splitName?.length === 2 ? splitName[1][0] : null}
           </Avatar>
-          <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
-            You are talking to an AI chatbot
+          <Typography sx={{ mx: 2, fontFamily: "work sans" }}>
+            Hi 👋! I am Techie an AI Chat Assistant
           </Typography>
-          <Typography sx={{ mx: "auto", fontFamily: "work sans", my: 4, p: 3 }}>
+          <Typography sx={{ mx: 1, fontFamily: "work sans", my: 2, p: 1 }}>
             You can ask some questions related to Knowledge, Business, Advices,
-            Education, etc. But avoid sharing personal information
+            Education, etc. But please avoid sharing personal information
           </Typography>
           <Button
             onClick={handleDeleteChats}
