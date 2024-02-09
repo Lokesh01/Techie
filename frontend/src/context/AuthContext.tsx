@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { checkUserAuth, loginUser } from "../utils/apiReqHandler";
+import { checkUserAuth, loginUser, logoutUser } from "../utils/apiReqHandler";
 
 type User = {
   name: string;
@@ -50,7 +50,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const logout = () => {};
+  const logout = async () => {
+    await logoutUser();
+    setIsLoggedIn(false);
+    setUser(null);
+    window.location.reload(); // clearing cookies takes some time so reload is required
+  };
 
   const value = {
     user,
