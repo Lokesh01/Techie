@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   getAllUsers,
   userLogin,
+  userLogout,
   userSignUp,
   verifyUser,
 } from "../controllers/userController.js";

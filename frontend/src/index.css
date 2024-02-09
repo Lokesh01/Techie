@@ -12,18 +12,30 @@ body {
 .image-inverted {
   filter: invert(100%);
 }
-
 .nav-link {
   font-weight: 600;
   text-transform: uppercase;
-  margin: 0 10px;
+  margin-right: 10px;
+  margin-left: 10px;
   padding: 8px 20px;
   border-radius: 10px;
   text-decoration: none;
   letter-spacing: 1px;
 }
-
 .MuiOutlinedInput-input-root.Mui-focused,
 .MuiOutlinedInput-notchedOutline {
   border-color: white !important;
+}
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
