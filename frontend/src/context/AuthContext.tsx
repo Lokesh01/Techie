@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { checkUserAuth, loginUser, logoutUser } from "../utils/apiReqHandler";
+import { checkUserAuth, loginUser, logoutUser, signupUser } from "../utils/apiReqHandler";
 
 type User = {
   name: string;
@@ -39,7 +39,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     checkAuthStatus();
   }, []);
 
-  const signup = async (name: string, email: string, password: string) => {};
+  const signup = async (name: string, email: string, password: string) => {
+    const userData = await signupUser(name, email, password);
+
+    if (userData) {
+      setUser({ email: userData.email, name: userData.name });
+      setIsLoggedIn(true);
+    }
+  };
 
   const login = async (email: string, password: string) => {
     const userData = await loginUser(email, password);
