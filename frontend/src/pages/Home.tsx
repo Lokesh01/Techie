@@ -1,11 +1,66 @@
-import React from 'react'
+import { Box, useMediaQuery, useTheme } from "@mui/material";
+import TypingAnim from "../components/TypingAnim";
 
 const Home = () => {
+  const theme = useTheme();
+  const isBelowMd = useMediaQuery(theme.breakpoints.down("md"));
   return (
-    <div>
-      home
-    </div>
-  )
-}
+    <Box width={"100%"} height={"100%"}>
+      <Box
+        sx={{
+          display: "flex",
+          width: "100%",
+          flexDirection: "column",
+          alignItems: "center",
+          mx: "auto",
+          mt: 3,
+        }}
+      >
+        <Box>
+          <TypingAnim />
+        </Box>
 
-export default Home
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: { md: "row", xs: "column", sm: "column" },
+            gap: 5,
+            my: 10,
+          }}
+        >
+          <img
+            src="robot.png"
+            alt="robot"
+            style={{ width: "200px", margin: "auto" }}
+          />
+          <img
+            src="openai.png"
+            alt="openai"
+            className="image-inverted rotate"
+            style={{ width: "200px", margin: "auto" }}
+          />
+        </Box>
+
+        <Box sx={{ display: "flex", mx: "auto" }}>
+          <img
+            src="chat.png"
+            alt="chatbox"
+            style={{
+              display: "flex",
+              margin: "auto",
+              width: isBelowMd ? "80%" : "60%",
+              borderRadius: 20,
+              boxShadow: "-5px -5px 100px #64f3d5",
+              marginTop: 20,
+              marginBottom: 20,
+              padding: 10,
+            }}
+          />
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default Home;
