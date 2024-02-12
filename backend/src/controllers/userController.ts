@@ -77,7 +77,7 @@ export const userLogin = async (
 
     //* clearing the cookie after every login
     res.clearCookie(COOKIE_NAME, {
-      domain: "localhost",
+      domain: process.env.HOST,
       httpOnly: true,
       signed: true,
       path: "/",
@@ -142,7 +142,7 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      domain: "localhost",
+      domain: process.env.HOST,
       signed: true,
       path: "/",
     });
