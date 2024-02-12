@@ -43,7 +43,7 @@ export const userSignUp = async (
     expires.setDate(expires.getDate() + 7);
     res.cookie(COOKIE_NAME, token, {
       path: "/",
-      // domain: process.env.HOST,
+      domain: String(process.env.HOST),
       expires,
       httpOnly: true,
       signed: true,
@@ -77,7 +77,7 @@ export const userLogin = async (
 
     //* clearing the cookie after every login
     res.clearCookie(COOKIE_NAME, {
-      // domain: process.env.HOST,
+      domain: String(process.env.HOST),
       httpOnly: true,
       signed: true,
       path: "/",
@@ -89,7 +89,7 @@ export const userLogin = async (
     expires.setDate(expires.getDate() + 7); //* cookie will expire in 7 days from date of creation
     res.cookie(COOKIE_NAME, token, {
       path: "/", // cookie is set to the root path means valid for entire domain
-      // domain: process.env.HOST, // todo: need to change in production
+      domain: String(process.env.HOST), // todo: need to change in production
       expires,
       httpOnly: true,
       signed: true,
@@ -142,7 +142,7 @@ export const userLogout = async (
 
     res.clearCookie(COOKIE_NAME, {
       httpOnly: true,
-      // domain: process.env.HOST,
+      domain: String(process.env.HOST),
       signed: true,
       path: "/",
     });
